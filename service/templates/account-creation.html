@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Land Registry | We know where you live</title>
+	</head>
+	<body>
+		<h1>Account Creation</h1>
+		<form>
+			<div name="user-details">
+				<p>Your Details</p>
+				<p>* Title: {{ form.title(size=40) }}</p>
+				<p>* Forname: {{ form.forname(size=40) }}</p>
+				<p>* Surname: {{ form.surname(size=40) }}</p>
+				<p>If you are acting on behalf of a business, enter a business name</p>
+				<p>Business Name: {{ form.business(size=40) }}</p>
+			</div>
+			<hr>
+			<div name="address-details">
+				<p>Your Address</p>
+				<p>* Postcode: {{ form.postcode(size=40) }}</p>
+				<p>* Address 1: {{ form.address1(size=40) }}</p>
+				<p>Address 2: {{ form.address2(size=40) }}</p>
+				<p>Address 3: {{ form.address3(size=40) }}</p>
+				<p>Address 4: {{ form.address4(size=40) }}</p>
+				<p>* City: {{ form.city(size=40) }}</p>
+				<p>County: {{ form.county(size=40) }}</p>
+				<p>* Country: {{ form.country(size=40) }}</p>
+				<p>{{ form.payment_address(size=40) }}Is this your payment address?</p>
+			</div>
+			<hr>
+			<div name="contact-details">
+				<p>* Email Address: {{ form.email1(size=40) }}</p>
+				<p>* Confirm Email: {{ form.email2(size=40) }}</p>
+				<p>Telephone Number: {{ form.telephone(size=40) }}</p>
+				<p>How would you prefer to be contacted?</p>
+				<p>{{ form.preference_email(size=40) }} Email</p>
+				<p>{{ form.preference_phone(size=40) }} Phone</p>
+				<p>{{ form.preference_post(size=40) }} Post</p>
+			</div>
+			<hr>
+			<div name="login-details">
+				<p>* Username: {{ form.login_username(size=40) }}</p>
+				<p>* Password: {{ form.login_password1(size=40) }}</p>
+				<p>* Confirm Password: {{ form.login_password2(size=40) }}</p>
+			</div>
+			<p><input type="submit" value="Submit"/></p>
+		</form>
+	</body>
+</html>
