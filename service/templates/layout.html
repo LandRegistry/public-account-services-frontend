@@ -4,6 +4,7 @@
 
 {% block head %}
   <!-- Land Registry styleguide css -->
+  {% assets "styleguide" %}<!--[if gt IE 8]><!--><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->{% endassets %}
   <!-- Google Analytics -->
   <script type="text/javascript">
     var googleAnalyticsApiKey = '{{ google_api_key }}';
