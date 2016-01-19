@@ -6,47 +6,131 @@
 					<div class="form-group">
 						<div class="text">
 							<h1 class="heading-xlarge form-title">Account Creation</h1>
+							<p class="lede">Fields marked with an asterisk (*) are required</p>
 						</div>
 					<div name="user-details">
 						<h2 class = "form-title">Your Details</h2>
-						<p>* Title: {{ form.title }}</p>
-						<p>* Forname: {{ form.forname }}</p>
-						<p>* Surname: {{ form.surname }}</p>
-						<p class="lede">If you are acting on behalf of a business, enter a business name</p>
-						<p>Business Name: {{ form.business }}</p>
-					</div>
+						<table>
+							<tr>
+								<td>* Title: </td><td>{{ form.title(style="width:100px") }}</td>
+							</tr>
+							<tr>
+								<td>* Forname: </td><td>{{ form.forname }}</td>
+							</tr>
+							<tr>
+								<td>* Surname: </td><td>{{ form.surname }}</td>
+							</tr>
+							<tr>
+								<td colspan="2">If you are acting on behalf of a business, enter a business name</td>
+							</tr>
+							<tr>
+								<td>Business Name: </td><td>{{ form.business(style="width:300px") }}</td>
+							</tr>
+					</table>
 					<hr>
+					</div>
 					<div name="address-details">
 						<h2 class="form-title">Your Address</h2>
-						<p>* Postcode: {{ form.postcode }}</p>
-						<p>* Address 1: {{ form.address1 }}</p>
-						<p>Address 2: {{ form.address2 }}</p>
-						<p>Address 3: {{ form.address3 }}</p>
-						<p>Address 4: {{ form.address4 }}</p>
-						<p>* City: {{ form.city }}</p>
-						<p>County: {{ form.county }}</p>
-						<p>* Country: {{ form.country }}</p>
-						<p>{{ form.payment_address }}Is this your payment address?</p>
+						<table>
+							<tr>
+								<td>* Postcode: </td>
+								<td>{{ form.postcode(style="width:100px") }}</td>
+								<td><input type="submit" value="Search" class="button"/></td>
+							</tr>
+							<tr>
+								<td>* Building Name/Number: </td><td>{{ form.address1 }}</td>
+							</tr>
+							<tr>
+								<td>* Street Name: </td><td>{{ form.address2 }}</td>
+							</tr>
+							<tr>
+								<td>* City: </td><td>{{ form.city }}</td>
+							</tr>
+							<tr>
+								<td>County: </td><td>{{ form.county }}</td>
+							</tr>
+							<tr>
+								<td>* Country: </td><td>{{ form.country }}</td>
+							</tr>
+							<tr>
+								<td colspan="2">{{ form.payment_address(onchange="change()") }}Is this your payment address?</td>
+								<script>
+								function change() {
+									var e = document.getElementById("payment");
+									if (e != null && e.hidden == true) {
+										e.hidden = false;
+									} else {
+										e.hidden = true;
+									}
+								}
+								</script>
+							</tr>
+						</table>
+						<hr>
 					</div>
-					<hr>
+					<div id="payment" name="payment-address-details" hidden="True">
+						<h2 class="form-title">Payment Address Details</h2>
+						<table>
+							<tr>
+								<td>* Postcode: </td><td>{{ form.ppostcode }}</td>
+							</tr>
+							<tr>
+								<td>* Building Name/Number: </td><td>{{ form.paddress1 }}</td>
+							</tr>
+							<tr>
+								<td>* Street Name: </td><td>{{ form.paddress2 }}</td>
+							</tr>
+							<tr>
+								<td>* City: </td><td>{{ form.pcity }}</td>
+							</tr>
+							<tr>
+								<td>* Country: </td><td>{{ form.pcountry }}</td>
+							</tr>
+						</table>
+						<hr>
+					</div>
 					<div name="contact-details">
 						<h2 class="form-title">Your Contact Details</h2>
-						<p>* Email Address: {{ form.email1 }}</p>
-						<p>* Confirm Email: {{ form.email2 }}</p>
-						<p>Telephone Number: {{ form.telephone }}</p>
-						<p class="lede">How would you prefer to be contacted?</p>
-						<p>{{ form.preference_email }} Email</p>
-						<p>{{ form.preference_phone }} Phone</p>
-						<p>{{ form.preference_post }} Post</p>
+						<table>
+							<tr>
+								<td>* Email Address: </td><td>{{ form.email1 }}</td>
+							</tr>
+							<tr>
+								<td>* Confirm Email: </td><td>{{ form.email2 }}</td>
+							</tr>
+							<tr>
+								<td>Telephone Number: </td><td>{{ form.telephone }}</td>
+							</tr>
+							<tr>
+								<td colspan="2">How would you prefer to be contacted?</td>
+							</tr>
+							<tr>
+								<td>{{ form.preference_email }} Email</td>
+							</tr>
+							<tr>
+								<td>{{ form.preference_phone }} Phone</td>
+							</tr>
+							<tr>
+								<td>{{ form.preference_post }} Post</td>
+							</tr>
+						</table>
+						<hr>
 					</div>
-					<hr>
 					<div name="login-details">
 						<h2 class="form-title">Your Login Details</h2>
-						<p>* Username: {{ form.login_username }}</p>
-						<p>* Password: {{ form.login_password1 }}</p>
-						<p>* Confirm Password: {{ form.login_password2 }}</p>
+						<table>
+							<tr>
+								<td>* Username: </td><td>{{ form.login_username }}</td>
+							</tr>
+							<tr>
+								<td>* Password: </td><td>{{ form.login_password1 }}</td>
+							</tr>
+							<tr>
+								<td>* Confirm Password: </td><td>{{ form.login_password2 }}</td>
+							</tr>
+						</table>
 					</div>
-					<p><input type="submit" value="Submit"/></p>
+					<p><input type="submit" value="Submit" class ="button"/></p>
 				</div>
 			</form>
 		</div>
