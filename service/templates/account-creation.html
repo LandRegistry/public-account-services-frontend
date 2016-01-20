@@ -1,60 +1,60 @@
 {% extends "layout.html" %}
 {% block body %}
 	<div class="outer-block">
-			<div class="inner-block">
-				<form>
-					<div class="form-group">
-						<div class="text">
-							<h1 class="heading-xlarge form-title">Account Creation</h1>
-							<p class="lede">Fields marked with an asterisk (*) are required</p>
-						</div>
-					<div name="user-details">
-						<h2 class = "form-title">Your Details</h2>
-						<table>
-							<tr>
-								<td>* Title: </td><td>{{ form.title(style="width:100px") }}</td>
-							</tr>
-							<tr>
-								<td>* Forname: </td><td>{{ form.forname }}</td>
-							</tr>
-							<tr>
-								<td>* Surname: </td><td>{{ form.surname }}</td>
-							</tr>
-							<tr>
-								<td colspan="2">If you are acting on behalf of a business, enter a business name</td>
-							</tr>
-							<tr>
-								<td>Business Name: </td><td>{{ form.business(style="width:300px") }}</td>
-							</tr>
-					</table>
-					<hr>
+		<div class="inner-block">
+			<form>
+				<div class="form-group">
+					<div class="text">
+						<h1 class="heading-xlarge form-title">Account Creation</h1>
+						<p class="lede">Fields marked with an asterisk (*) are required</p>
 					</div>
+					<h2 class="form-title">Your Details</h2>
+					<div name="user-details">
+					<table>
+						<tr>
+							<td>* Title: </td><td>{{ form.title(style="width:100px") }}</td>
+						</tr>
+						<tr>
+							<td>* Forname: </td><td>{{ form.forname }}</td>
+						</tr>
+						<tr>
+							<td>* Surname: </td><td>{{ form.surname }}</td>
+						</tr>
+						<tr>
+							<td colspan="2">If you are acting on behalf of a business, enter a business name</td>
+						</tr>
+						<tr>
+							<td>Business Name: </td><td>{{ form.business(style="width:300px") }}</td>
+						</tr>
+					</table>
+					</div>
+					<hr>
+					<h2 class="form-title">Your Address</h2>
 					<div name="address-details">
-						<h2 class="form-title">Your Address</h2>
-						<table>
-							<tr>
-								<td>* Postcode: </td>
-								<td>{{ form.postcode(style="width:100px") }}</td>
-								<td><input type="submit" value="Search" class="button"/></td>
-							</tr>
-							<tr>
-								<td>* Building Name/Number: </td><td>{{ form.address1 }}</td>
-							</tr>
-							<tr>
-								<td>* Street Name: </td><td>{{ form.address2 }}</td>
-							</tr>
-							<tr>
-								<td>* City: </td><td>{{ form.city }}</td>
-							</tr>
-							<tr>
-								<td>County: </td><td>{{ form.county }}</td>
-							</tr>
-							<tr>
-								<td>* Country: </td><td>{{ form.country }}</td>
-							</tr>
-							<tr>
-								<td colspan="2">{{ form.payment_address(onchange="change()") }}Is this your payment address?</td>
-								<script>
+					<table>
+						<tr>
+							<td>* Postcode: </td>
+							<td>{{ form.postcode(style="width:100px") }}</td>
+							<td><input type="submit" value="Search" class="button"/></td>
+						</tr>
+						<tr>
+							<td>* Building Name/Number: </td><td>{{ form.address1 }}</td>
+						</tr>
+						<tr>
+							<td>* Street Name: </td><td>{{ form.address2 }}</td>
+						</tr>
+						<tr>
+							<td>* City: </td><td>{{ form.city }}</td>
+						</tr>
+						<tr>
+							<td>County: </td><td>{{ form.county }}</td>
+						</tr>
+						<tr>
+							<td>* Country: </td><td>{{ form.country }}</td>
+						</tr>
+						<tr>
+							<td colspan="2">{{ form.payment_address(onchange="change()") }}Is this your payment address?</td>
+							<script>
 								function change() {
 									var e = document.getElementById("payment");
 									if (e != null && e.hidden == true) {
@@ -63,16 +63,18 @@
 										e.hidden = true;
 									}
 								}
-								</script>
-							</tr>
-						</table>
-						<hr>
+							</script>
+						</tr>
+					</table>
 					</div>
+					<hr>
 					<div id="payment" name="payment-address-details" hidden="True">
 						<h2 class="form-title">Payment Address Details</h2>
 						<table>
 							<tr>
-								<td>* Postcode: </td><td>{{ form.ppostcode }}</td>
+								<td>* Postcode: </td>
+								<td>{{ form.ppostcode(style="width:100px") }}</td>
+								<td><input type="submit" value="Search" class="button"/></td>
 							</tr>
 							<tr>
 								<td>* Building Name/Number: </td><td>{{ form.paddress1 }}</td>
@@ -89,50 +91,50 @@
 						</table>
 						<hr>
 					</div>
+					<h2 class="form-title">Your Contact Details</h2>
 					<div name="contact-details">
-						<h2 class="form-title">Your Contact Details</h2>
-						<table>
-							<tr>
-								<td>* Email Address: </td><td>{{ form.email1 }}</td>
-							</tr>
-							<tr>
-								<td>* Confirm Email: </td><td>{{ form.email2 }}</td>
-							</tr>
-							<tr>
-								<td>Telephone Number: </td><td>{{ form.telephone }}</td>
-							</tr>
-							<tr>
-								<td colspan="2">How would you prefer to be contacted?</td>
-							</tr>
-							<tr>
-								<td>{{ form.preference_email }} Email</td>
-							</tr>
-							<tr>
-								<td>{{ form.preference_phone }} Phone</td>
-							</tr>
-							<tr>
-								<td>{{ form.preference_post }} Post</td>
-							</tr>
-						</table>
-						<hr>
+					<table>
+						<tr>
+							<td>* Email Address: </td><td>{{ form.email1 }}</td>
+						</tr>
+						<tr>
+							<td>* Confirm Email: </td><td>{{ form.email2 }}</td>
+						</tr>
+						<tr>
+							<td>Telephone Number: </td><td>{{ form.telephone }}</td>
+						</tr>
+						<tr>
+							<td colspan="2">How would you prefer to be contacted?</td>
+						</tr>
+						<tr>
+							<td>{{ form.preference_email }} Email</td>
+						</tr>
+						<tr>
+							<td>{{ form.preference_phone }} Phone</td>
+						</tr>
+						<tr>
+							<td>{{ form.preference_post }} Post</td>
+						</tr>
+					</table>
 					</div>
+					<hr>
+					<h2 class="form-title">Your Login Details</h2>
 					<div name="login-details">
-						<h2 class="form-title">Your Login Details</h2>
-						<table>
-							<tr>
-								<td>* Username: </td><td>{{ form.login_username }}</td>
-							</tr>
-							<tr>
-								<td>* Password: </td><td>{{ form.login_password1 }}</td>
-							</tr>
-							<tr>
-								<td>* Confirm Password: </td><td>{{ form.login_password2 }}</td>
-							</tr>
-						</table>
+					<table>
+						<tr>
+							<td>* Username: </td><td>{{ form.login_username }}</td>
+						</tr>
+						<tr>
+							<td>* Password: </td><td>{{ form.login_password1 }}</td>
+						</tr>
+						<tr>
+							<td>* Confirm Password: </td><td>{{ form.login_password2 }}</td>
+						</tr>
+					</table>
 					</div>
 					<p><input type="submit" value="Submit" class ="button"/></p>
 				</div>
 			</form>
 		</div>
-	</div>
+ </div>
 {% endblock %}
